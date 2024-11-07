@@ -17,8 +17,9 @@ function handlerHtmlGeneration(array, container) {
   array.forEach((element) => {
     postItContainerHtml += `
     <div class="col-12">
-        <div class="card p-3 h-100">
-            <img src=${element.url} class="card-img-top" alt="Photo"/>
+        <div class="card p-3 pb-0 h-100 position-relative">
+            <img src="./img/pin.svg" class="position-absolute top-0 start-50 translate-middle" alt="Pin" />
+            <img src=${element.url} class="card-img-top" alt="Photo" />
             <div class="card-body px-0">
             <p class="card-text fs-4 fst-italic text-capitalize">${element.title}<p>
             </div>
