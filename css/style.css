@@ -1,0 +1,23 @@
+/* ! Font */
+.rubik {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 4rem;
+}
+
+/* ! Layout */
+.bg-image-wall {
+  background-image: url(../img/wall.png);
+}
+
+.bg-image-cork {
+  background-image: url(../img/cork.png);
+}
+
+.block {
+  width: 100%;
+  aspect-ratio: 1;
+  background-color: aqua;
+}

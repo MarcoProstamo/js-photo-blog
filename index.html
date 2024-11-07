@@ -20,13 +20,43 @@
       referrerpolicy="no-referrer"
     />
 
+    <!-- Custom Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nerko+One&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Custom CSS -->
     <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="./css/style.css" />
   </head>
 
-  <body>
-    <h1>Hello World!</h1>
+  <body class="bg-image-wall">
+    <div class="container">
+      <h1 class="fw-semibold fst-italic text-uppercase text-center rubik my-5">
+        Estate '24
+      </h1>
+      <div class="bg-image-cork">
+        <div class="row row-cols-md-2 row-cols-lg-3" id="postItContainer">
+          <div class="col-12">
+            <div class="card p-3 m-3">
+              <img src="..." class="card-img-top" alt="..." id="postItImage" />
+              <div class="card-body px-0">
+                <p
+                  class="card-text fs-4 fst-italic text-capitalize"
+                  id="postItText"
+                >
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Itaque, aliquid?
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
