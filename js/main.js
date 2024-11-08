@@ -21,7 +21,7 @@ function handlerHtmlGeneration(array, container) {
     postItContainerHtml += `
     <div class="col-12">
         <div class="card p-3 pb-0 h-100 position-relative border-0">
-            <img src="./img/pin.svg" class="position-absolute top-0 start-50 translate-middle" alt="Pin" />
+            <img src="./img/pin.svg" class="position-absolute top-0 start-50 translate-middle" alt="Pin" data-element="pin"/>
             <img src=${element.url} class="card-img-top" alt="Photo" data-element="photo"/>
             <div class="card-body px-0">
             <p class="card-text fs-4 fst-italic text-capitalize edu-tas-beginner-light">${element.title}<p>
@@ -57,21 +57,22 @@ layoverEl.addEventListener("click", (event) => {
 
 // # Card Animation
 let cardsEl;
+let pinsEl;
 function cardAnimationInit() {
   cardsEl = document.querySelectorAll(".card");
-  cardsEl.forEach((card) => {
+  pinsEl = document.querySelectorAll("[data-element='pin']");
+  cardsEl.forEach((card, cardIndex) => {
     card.addEventListener("mouseover", () => {
-      card.classList.add("rotate");
-      card.classList.add("zoom");
-      card.classList.add("bigger-shadow");
+      card.classList.add("effects");
+      pinsEl[cardIndex].classList.add("d-none");
     });
     card.addEventListener("mouseleave", () => {
-      card.classList.remove("rotate");
-      card.classList.remove("zoom");
-      card.classList.remove("bigger-shadow");
+      card.classList.remove("effects");
+      pinsEl[cardIndex].classList.remove("d-none");
     });
   });
 }
+
 // # Initialization
 async function init() {
   await fetchPhotos();
