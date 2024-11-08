@@ -1,10 +1,17 @@
 /* ! Font */
-.rubik {
-  font-family: "Rubik", sans-serif;
+.edu-tas-beginner-bolder {
+  font-family: "Edu TAS Beginner", cursive;
   font-optical-sizing: auto;
   font-weight: 900;
   font-style: normal;
-  font-size: 4rem;
+  font-size: 3rem;
+}
+
+.edu-tas-beginner-light {
+  font-family: "Edu TAS Beginner", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* ! Layout */
@@ -20,4 +27,16 @@
   width: 100%;
   aspect-ratio: 1;
   background-color: aqua;
+}
+
+/* ! Photo */
+
+[data-element="photo"] {
+  cursor: pointer;
+}
+
+/* ! Card */
+
+.card {
+  box-shadow: 2px 2px 3px #4e4545;
 }
