@@ -34,6 +34,7 @@ function handlerHtmlGeneration(array, container) {
 }
 
 // # Handler Layover
+// * Handler Layover → Open Layover and Show Clicked Photo
 let photosEl;
 function handlerLayover() {
   photosEl = document.querySelectorAll("[data-element='photo']");
@@ -45,40 +46,39 @@ function handlerLayover() {
   });
 }
 
-// * Handler Layover → Event Listener
+// * Handler Layover → Close Layover
 btnCloseLayoverEl.addEventListener("click", () => {
   layoverEl.classList.add("d-none");
   console.log(layoverEl);
 });
 layoverEl.addEventListener("click", (event) => {
-  if (event.target === layoverEl) {
-    layoverEl.classList.add("d-none");
-    console.log("click layover");
-  }
+  if (event.target === layoverEl) layoverEl.classList.add("d-none");
 });
 
+// # Card Animation
+let cardsEl;
+function cardAnimationInit() {
+  cardsEl = document.querySelectorAll(".card");
+  cardsEl.forEach((card) => {
+    card.addEventListener("mouseover", () => {
+      card.classList.add("rotate");
+      card.classList.add("zoom");
+      card.classList.add("bigger-shadow");
+    });
+    card.addEventListener("mouseleave", () => {
+      card.classList.remove("rotate");
+      card.classList.remove("zoom");
+      card.classList.remove("bigger-shadow");
+    });
+  });
+}
 // # Initialization
 async function init() {
   await fetchPhotos();
   handlerHtmlGeneration(photos, postItContainerEl);
   handlerLayover();
+  cardAnimationInit();
 }
 
 // # Start
 init();
-
-// ! TODO:
-// 1. Add Bottom Margin to Cork Board 👍
-// 2. Change to a much similar Font (See Slack) 👍
-// 3. Set Cursor Pointer on Photo Images 👍
-// 4. Set Shadow on Cards 👍
-// 5. Create an Overlay:
-//    a. Black - Alpha .5 👍
-//    b. Open on Photo Click 👍
-//    c. Close on:
-//       i. Button Click 👍
-//       ii. Overlay Click 👍
-// 6. Animate (fluid) Card when Hovered
-//    a. Rotate 10°
-//    b. Transition towards me
-//    c. Bigger but lighter Shadow
