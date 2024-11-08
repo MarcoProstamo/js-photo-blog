@@ -19,7 +19,7 @@ function handlerHtmlGeneration(array, container) {
     <div class="col-12">
         <div class="card p-3 pb-0 h-100 position-relative border-0">
             <img src="./img/pin.svg" class="position-absolute top-0 start-50 translate-middle" alt="Pin" />
-            <img src=${element.url} class="card-img-top" alt="Photo" />
+            <img src=${element.url} class="card-img-top" alt="Photo" data-element="photo"/>
             <div class="card-body px-0">
             <p class="card-text fs-4 fst-italic text-capitalize edu-tas-beginner-light">${element.title}<p>
             </div>
