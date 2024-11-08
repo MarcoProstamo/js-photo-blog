@@ -63,11 +63,13 @@ function cardAnimationInit() {
   pinsEl = document.querySelectorAll("[data-element='pin']");
   cardsEl.forEach((card, cardIndex) => {
     card.addEventListener("mouseover", () => {
+      card.classList.remove("effectsLeave");
       card.classList.add("effects");
       pinsEl[cardIndex].classList.add("d-none");
     });
     card.addEventListener("mouseleave", () => {
       card.classList.remove("effects");
+      card.classList.add("effectsLeave");
       pinsEl[cardIndex].classList.remove("d-none");
     });
   });
