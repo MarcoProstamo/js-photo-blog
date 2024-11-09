@@ -1,17 +1,63 @@
+.rainbow {
+  animation: rainbow 10s infinite alternate;
+}
+@keyframes rainbow {
+  0% {
+    color: currentColor;
+  }
+
+  10% {
+    color: black;
+  }
+
+  20% {
+    color: greenyellow;
+  }
+
+  30% {
+    color: cyan;
+  }
+
+  40% {
+    color: deeppink;
+  }
+
+  50% {
+    color: coral;
+  }
+
+  60% {
+    color: blueviolet;
+  }
+
+  70% {
+    color: crimson;
+  }
+
+  80% {
+    color: cornflowerblue;
+  }
+
+  90% {
+    color: white;
+  }
+
+  100% {
+    color: currentColor;
+  }
+}
+
 /* ! Font */
 .edu-tas-beginner-bolder {
   font-family: "Edu TAS Beginner", cursive;
   font-optical-sizing: auto;
-  font-weight: 900;
-  font-style: normal;
-  font-size: 3rem;
+  font-size: 7rem;
 }
 
 .edu-tas-beginner-light {
   font-family: "Edu TAS Beginner", cursive;
   font-optical-sizing: auto;
   font-weight: 400;
-  font-style: normal;
 }
 
 /* ! Layout */
@@ -21,12 +67,6 @@
 
 .bg-image-cork {
   background-image: url(../img/cork.png);
-}
-
-.block {
-  width: 100%;
-  aspect-ratio: 1;
-  background-color: aqua;
 }
 
 /* ! Photo */
@@ -47,12 +87,14 @@
   transition: 1s;
   transform: rotate(10deg) scale(1.1);
   box-shadow: 2px 2px 10px #4e4545;
+  z-index: 1;
 }
 
 .effectsDeactive {
   transition: 1s;
   transform: rotate(0deg) scale(1);
   box-shadow: 2px 2px 3px #4e4545;
+  z-index: 0;
 }
 
 /* ! Layover */

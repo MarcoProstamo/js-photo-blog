@@ -10,6 +10,7 @@ async function fetchPhotos() {
   const result = await fetch(
     "https://jsonplaceholder.typicode.com/photos?_limit=6"
   );
+  if (!result.ok) throw new Error(result.status);
   const data = await result.json();
   photos = data;
 }
@@ -49,7 +50,6 @@ function handlerLayover() {
 // * Handler Layover → Close Layover
 btnCloseLayoverEl.addEventListener("click", () => {
   layoverEl.classList.add("d-none");
-  console.log(layoverEl);
 });
 layoverEl.addEventListener("click", (event) => {
   if (event.target === layoverEl) layoverEl.classList.add("d-none");
