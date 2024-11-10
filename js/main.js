@@ -10,10 +10,14 @@ addEventListener("load", () => {
 
 // # Post-It Request
 let postIt = [];
-async function fetchPostIt() {
-  const result = await fetch(
-    "https://jsonplaceholder.typicode.com/photos?_limit=6"
-  );
+/**
+ *
+ * Retrieve datas from a given link via Fetch
+ *
+ * @param {string} link
+ */
+async function fetchPostIt(link) {
+  const result = await fetch(link);
   if (!result.ok) throw new Error(result.status);
   const data = await result.json();
   postIt = data;
@@ -21,6 +25,13 @@ async function fetchPostIt() {
 
 // # Post-It Generation
 let postItContainerHtml = ``;
+/**
+ *
+ * Generate Post-It
+ *
+ * @param {NodeList} postIt
+ * @param {Node} postItContainer
+ */
 function generatePostIt(postIt, postItContainer) {
   postIt.forEach((postIt) => {
     postItContainerHtml += `
@@ -40,6 +51,11 @@ function generatePostIt(postIt, postItContainer) {
 
 // # Retrieve Post-It Elements
 let postItEl, postItPhotosEl, postItPinEl;
+/**
+ *
+ * Retrieves all the component of a Post It
+ *
+ */
 function retrievePostItElements() {
   postItEl = document.querySelectorAll(".card");
   postItPhotosEl = document.querySelectorAll("[data-element='photo']");
@@ -48,6 +64,11 @@ function retrievePostItElements() {
 
 // # Layover
 // * Layover → Close
+/**
+ *
+ * Close Layover
+ *
+ */
 function closeLayover() {
   layoverEl.classList.add("d-none");
 }
@@ -60,11 +81,22 @@ addEventListener("load", () => {
 });
 
 // * Layover → Open
+/**
+ *
+ * Open Layover and set the image url
+ *
+ * @param {Node} postItPhotoEl
+ */
 function openLayover(postItPhotoEl) {
   layoverImage.src = postItPhotoEl.src;
   layoverEl.classList.remove("d-none");
 }
 // * Event Listener → Open
+/**
+ *
+ * Adds the OnClick to all Post It Photos
+ *
+ */
 function postItPhotoEventHandler() {
   postItPhotosEl.forEach((postItPhotoEl) => {
     postItPhotoEl.addEventListener(
@@ -76,6 +108,14 @@ function postItPhotoEventHandler() {
 
 // # Post-It Animation
 // * Animation Handler
+/**
+ *
+ * Starts or Ends the Post It animation
+ *
+ * @param {string} state Expected values: "start" or "close"
+ * @param {Node} postIt
+ * @param {number} postItIndex
+ */
 function animationHandler(state, postIt, postItIndex) {
   switch (state) {
     case "start":
@@ -91,6 +131,11 @@ function animationHandler(state, postIt, postItIndex) {
   }
 }
 // * Animation Events Listener
+/**
+ *
+ * Adds "Mouse Over" and "Mouse Leave" events listener to all the Post It
+ *
+ */
 function postItAnimation() {
   postItEl.forEach((postIt, postItIndex) => {
     postIt.addEventListener(
@@ -105,8 +150,13 @@ function postItAnimation() {
 }
 
 // # Initialization
+/**
+ *
+ * Initialize page
+ *
+ */
 async function init() {
-  await fetchPostIt();
+  await fetchPostIt("https://jsonplaceholder.typicode.com/photos?_limit=6");
   generatePostIt(postIt, postItContainerEl);
   retrievePostItElements();
   postItPhotoEventHandler();
